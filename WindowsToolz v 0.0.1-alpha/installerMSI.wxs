@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product
+        Id="*"
+        Name="Windows Toolz"
+        Manufacturer="AnNeedle"
+        Version="0.0.1"
+        UpgradeCode="a19542dada294ce798526125d11736d7"
+        Language="1045">
+        <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine"/>
+        <WixVariable Id="WixUILicenseRtf" Value="license.rtf"/>
+        <Property Id="VCREDISTINSTALLED">
+            <RegistrySearch Id="VCREDIST"
+                Root="HKLM"
+                Key="SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\X64"
+                Name="Installed"
+                Type="raw"/>
+        </Property>
+        <Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="WindowsFolder" Name="Windows"/>
+            <Directory Id="DesktopFolder">
+                <Component Id="DesktopShortcutComp" Guid="e4b1b42429354a7d8d16cbf4874e6de3">
+                    <Shortcut
+                        Id="DesktopShortcut"
+                        Name="Windows Toolz"
+                        Target="[INSTALLFOLDER]toolz.exe"
+                        WorkingDirectory="INSTALLFOLDER"/>
+                    <RegistryValue Root="HKCU" Key="Software\WindowsToolz" Name="DesktopShortcut" Type="integer" Value="1"/>
+                </Component>
+            </Directory>
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="Windows Toolz">
+                    <Component Id="MainExe" Guid="55dc7eaeb37b46e5860eac712282b134">
+                        <File Source="toolz.exe"/>
+                    </Component>
+                    <Component Id="DLLs" Guid="b8cccb52cc494675ad9b8d60cd495bd6">
+                        <File Source="sfml-graphics-3.dll"/>
+                        <File Source="sfml-system-3.dll"/>
+                        <File Source="sfml-window-3.dll"/>
+                    </Component>
+                    <Directory Id="BatchFolder" Name="batch">
+                        <Component Id="BatchFiles" Guid="332beb7c130c4dfba4c4b38113ba98b2">
+                            <File Source="batch\IconCache.bat"/>
+                        </Component>
+                    </Directory>
+                    <Directory Id="AssetsFolder" Name="assets">
+                        <Directory Id="FontFolder" Name="fonts">
+                            <Component Id="FontFiles" Guid="bdc793fb240a4cfa8b6b9328e735abbc">
+                                <File Source="assets\fonts\Roboto.ttf"/>
+                                <File Source="assets\fonts\Oswald.ttf"/>
+                            </Component>
+                        </Directory>
+                        <Directory Id="ImagesFolder" Name="images">
+                            <Component Id="ImageFiles" Guid="5cdcf5d690bf423a8d596c78d401cf69">
+                                <File Source="assets\images\icon.png"/>
+                            </Component>
+                        </Directory>
+                    </Directory>
+                </Directory>
+            </Directory>
+            <Directory Id="ProgramMenuFolder">
+                <Component Id="StartMenuShortcutComp" Guid="917ac5c407fe4c2f83cdbe22817a4364">
+                    <Shortcut
+                        Id="WindowsToolzShortcut"
+                        Name="Windows Toolz"
+                        Target="[INSTALLFOLDER]toolz.exe"
+                        WorkingDirectory="INSTALLFOLDER"/>
+                    <RegistryValue Root="HKCU" Key="Software\WindowsToolz" Name="Installed" Type="integer" Value="1"/>
+                </Component>
+            </Directory>
+        </Directory>
+        <Feature Id="MainFeature" Title="Windows Toolz" Level="1">
+            <ComponentRef Id="MainExe"/>
+            <ComponentRef Id="DLLs"/>
+            <ComponentRef Id="BatchFiles"/>
+            <ComponentRef Id="FontFiles"/>
+            <ComponentRef Id="ImageFiles"/>
+        </Feature>
+        <Feature Id="DesktopShortcutFeature" Title="Desktop Shortcut" Level="1" Absent="allow">
+            <ComponentRef Id="DesktopShortcutComp"/>
+        </Feature>
+        <Feature Id="StartMenuShortcutFeature" Title="Start Menu Shortcut" Level="1" Absent="allow">
+            <ComponentRef Id="StartMenuShortcutComp"/>
+        </Feature>
+        <UI>
+            <UIRef Id="WixUI_FeatureTree"/>
+        </UI>
+    </Product>
+</Wix>

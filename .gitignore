@@ -1,0 +1,13 @@
+*.wixobj
+*.wixpdb
+*.ilk
+*.obj
+*.pdb
+*.dll
+*.exe
+*.obj
+*.lib
+*.exp
+*.idb
+*.manifest
+*.lib
