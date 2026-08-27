@@ -13,3 +13,4 @@
 *.manifest
 *.lib
 *.bat
+.vscode
