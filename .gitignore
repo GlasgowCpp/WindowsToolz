@@ -12,5 +12,4 @@
 *.idb
 *.manifest
 *.lib
-*.bat
 .vscode
