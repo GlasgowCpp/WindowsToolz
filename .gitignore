@@ -5,9 +5,11 @@
 *.pdb
 *.dll
 *.exe
+*.msi
 *.obj
 *.lib
 *.exp
 *.idb
 *.manifest
 *.lib
+*.bat
