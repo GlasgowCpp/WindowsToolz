@@ -13,3 +13,4 @@
 *.manifest
 *.lib
 .vscode
+*\buildInstallers.bat
