@@ -111,14 +111,14 @@ int main() {
     sprite.setScale({0.25f, 0.25f});
     sprite.setPosition({0.f, 0.f});
     Screen currentScreen = Screen::MainMenu;
-    //MENU GŁÓWNE
+    //MAIN MENU
     sf::Text btnIconCache(font, "> Clear Icon Cache");
     btnIconCache.setCharacterSize(24);
     btnIconCache.setPosition({0.f, 125.f});
     sf::Text btnOptions(font, "> Settings");
     btnOptions.setCharacterSize(24);
     btnOptions.setPosition({0.f, 155.f});
-    //USTAWIENIA
+    //SETTINGS
     sf::Text btnMenu(font, "> Back");
     btnMenu.setCharacterSize(24);
     btnMenu.setPosition({0.f, 0.f});
