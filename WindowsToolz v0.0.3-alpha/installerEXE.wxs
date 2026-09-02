@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+    xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+    <Bundle
+        Name="Windows Toolz"
+        Version="0.0.3"
+        Manufacturer="AnNeedle"
+        UpgradeCode="a19542dada294ce798526125d11736d7">
+        <Chain>
+            <ExePackage
+                Id="VCRedist"
+                DisplayName="Microsoft Visual C++ Redistributable"
+                SourceFile="vc_redist.x64.exe"
+                Permanent="yes"
+                Vital="yes"
+                InstallCommand="/install /quiet /norestart"
+                DetectCondition="VCREDISTINSTALLED"/>
+            <MsiPackage
+                Id="WindowsToolzMsi"
+                DisplayName="Windows Toolz"
+                SourceFile="WindowsToolz.msi"
+                Vital="yes"/>
+        </Chain>
+        <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense"/>
+        <WixVariable Id="WixStdbaLicenseRtf" Value="license.rtf"/>
+        <Variable Name="VCREDISTINSTALLED" Type="numeric" Value="0"/>
+        <bal:Condition Message="Windows Toolz wymaga systemu Windows x64.">VersionNT64</bal:Condition>
+    </Bundle>
+</Wix>
