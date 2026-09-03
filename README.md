@@ -2,7 +2,7 @@
 
 Windows Toolz is a light program to help you fix some broken things.
 
-For now the first version has only one funcion, but i am planning to add more in the future.
+For now the first version has only a few funcions, but i am planning to add more in the future.
 
 There are two setup files:
 
