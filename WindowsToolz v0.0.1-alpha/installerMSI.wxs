@@ -8,6 +8,13 @@
         UpgradeCode="a19542dada294ce798526125d11736d7"
         Language="1045">
         <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine"/>
+        <MajorUpgrade
+            AllowDowngrades="no"
+            DowngradeErrorMessage="You can't install an older version of Windows Toolz.";
+            Schedule="afterInstallInitialize"
+            IgnoreRemoveFailure="yes"
+            AllowSameVersionUpgrades="yes"
+        />
         <WixVariable Id="WixUILicenseRtf" Value="license.rtf"/>
         <Property Id="VCREDISTINSTALLED">
             <RegistrySearch Id="VCREDIST"
