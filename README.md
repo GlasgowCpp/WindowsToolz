@@ -8,17 +8,17 @@ There are two setup files:
 
 # .MSI file
 
-It has a feature tree, which allows you to configure what features do you want to install. 
+In one you can set a custom path, which allows you to install to whatever folder you like
 
 # .EXE file
 
-It's a basic installation setup, it doesn't come with a feature tree, but it also automatically installs VC Redist, as it is required to run the program.
+It's a basic installation setup, it doesn't come with a custom path, but it also automatically installs VC Redist, as it is required to run the program.
 
 # WHICH FILE SHOULD YOU CHOOSE?
 
-If you want to choose to have a shortcut on your Desktop or in the Start Menu, choose the .MSI file.
+If you want to set up a custom path choose the .MSI file.
 
-The .EXE file automatically adds the shortcuts, and comes with the VC Redist package.
+The .EXE file automatically installs in the default path (C:\\Program Files (x86)\\Windows Toolz), and comes with the VC Redist package.
 
 # REQUIREMENTS
 
