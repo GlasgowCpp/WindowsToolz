@@ -10,7 +10,7 @@
         <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine"/>
         <MajorUpgrade
             AllowDowngrades="no"
-            DowngradeErrorMessage="You can't install an older version of Windows Toolz."
+            DowngradeErrorMessage="You can't install an older version of Windows Toolz. Please uninstall it before installing an older version."
             Schedule="afterInstallInitialize"
             IgnoreRemoveFailure="yes"
             AllowSameVersionUpgrades="yes"
@@ -23,6 +23,7 @@
                 Name="Installed"
                 Type="raw"/>
         </Property>
+        <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER"/>
         <Media Id="1" Cabinet="product.cab" EmbedCab="yes"/>
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="WindowsFolder" Name="Windows"/>
@@ -92,7 +93,7 @@
             <ComponentRef Id="StartMenuShortcutComp"/>
         </Feature>
         <UI>
-            <UIRef Id="WixUI_FeatureTree"/>
+            <UIRef Id="WixUI_InstallDir"/>
         </UI>
     </Product>
 </Wix>
