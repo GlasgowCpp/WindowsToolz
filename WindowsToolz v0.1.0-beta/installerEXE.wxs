@@ -3,7 +3,7 @@
     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
     <Bundle
         Name="Windows Toolz"
-        Version="0.0.3"
+        Version="0.1.0"
         Manufacturer="AnNeedle"
         UpgradeCode="a19542dada294ce798526125d11736d7">
         <Chain>
